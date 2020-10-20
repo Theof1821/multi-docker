@@ -9,14 +9,14 @@ script:
     - docker run testTravis npm test -- --coverage
 
 after_success:
-    - docker build -t mlient ./client
-    - docker build -t mWorker ./worker
+    - docker build -t mclient ./client
+    - docker build -t mworker ./worker
     - docker build -t nginx ./nginx
     - docker build -t mserver ./server
     # Log in to the docker CLI
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # push images to docker hub
-    - docker push mclientt
-    - docker push mWorker
+    - docker push mclient
+    - docker push mworker
     - docker push nginx
     - docker push mserver
