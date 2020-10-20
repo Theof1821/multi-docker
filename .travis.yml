@@ -3,10 +3,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t testTravis -f ./client/Dockerfile.dev ./client
+    - docker build -t testtravis -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run testTravis npm test -- --coverage
+    - docker run testtravis npm test -- --coverage
 
 after_success:
     - docker build -t mclient ./client
@@ -14,6 +14,7 @@ after_success:
     - docker build -t nginx ./nginx
     - docker build -t mserver ./server
     # Log in to the docker CLI
+    # push images to docker hub ok
     - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
     # push images to docker hub ok tst new branch
     - docker push mclient
