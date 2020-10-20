@@ -15,7 +15,7 @@ after_success:
     - docker build -t mserver ./server
     # Log in to the docker CLI
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    # push images to docker hub ok
+    # push images to docker hub ok tst new branch
     - docker push mclient
     - docker push mworker
     - docker push nginx
